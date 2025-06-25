@@ -1,0 +1,11 @@
+<nav class="py-4 container flex items-center justify-between px-4" [ngClass]="windowScrolled ? 'sticky' : 'absolute'">
+    <a class="logo cursor-pointer" routerLink="/">
+        <h1>↬GS↫</h1>
+    </a>
+    <div class="flex max-w-md gap-x-4 w-3/6">
+        <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6" placeholder="Search 875,522 games" />
+    </div>
+    <div class="hidden lg:flex lg:justify-end">
+        <a routerLink="/login" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+    </div>
+</nav>

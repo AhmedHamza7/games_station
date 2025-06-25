@@ -1,0 +1,33 @@
+nav{
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    .logo{
+        h1{
+            font-size: 30px;
+            letter-spacing: 2px;
+        }
+    }
+    .nav-icons{
+        font-size: 24px !important;
+        width: 20%;
+        a{
+            font-size: 16px;
+            font-weight: lighter;
+            margin-right: 20px;
+            &:hover{
+                border-bottom: 1px solid white;
+            }
+        }
+    }
+}  
+
+nav.relative{
+    position: absolute;
+}
+
+nav.sticky{
+    position: sticky;
+    background-color: #00031b;
+}

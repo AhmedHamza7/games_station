@@ -1,0 +1,81 @@
+.game-item{
+    background-color: var(--medium-color);
+    width:calc((100% / 4) - 1.5rem);
+    position: relative;
+    &:hover{
+        z-index: 6;
+        .child-item{
+        transform: scale(1.02);
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 100%;
+        }
+        .more-info{
+            display: block !important;
+        }
+    }
+    .child-item{
+        border-radius: 10px;
+        background-color: var(--medium-color);
+        .game-img{
+            img{
+                max-height: 180px;
+                min-height: 180px;
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+            }
+        }
+        .game-info{
+            padding: 15px;
+            .game-name{
+                max-height: 35px;
+                overflow: hidden;
+            }
+            .game-rate-info{
+                .game-added{
+                    background-color: var(--light-color);
+                    width: 70px;
+                    padding: 3px 7px;
+                    p{
+                        font-size: 12px;
+                    }
+                }
+                .game-rate{
+                    span{
+                        color:#6DC849;
+                        font-size: 14px;
+                        padding: 0.5px 10px;
+                        border-radius:3px;
+                        border: 1.5px solid #6DC849 ;
+                    }
+                }
+            }
+            .more-info{
+                margin-top: 20px;
+                display: none;
+                .more-info-item{
+                    font-size: 14px;
+                    font-weight: lighter;
+                    border-bottom: 1px solid #676767;
+                    .info-title{
+                        color:#676767;
+                    }
+                    &:last-of-type{
+                        border-bottom: 0px;
+                    }
+                }
+                .more-info-button{
+                    button{
+                        background-color: transparent;
+                        &:hover{
+                            p{
+                                color:#ebf92ccb
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

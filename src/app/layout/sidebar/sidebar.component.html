@@ -1,0 +1,32 @@
+<div class="aside-content">
+    
+    <h4 class="group"><a class="block cursor-pointer group-hover:text-gray-500 transition-all duration-500" routerLink="/AllGames">Home</a></h4>
+    <h4 class="my-2 flex items-center justify-between cursor-pointer hover:text-gray-400 transition-all duration-500" (click)="isBrowseOpen = !isBrowseOpen">
+        <span>Browse</span>
+        <i class="fa-solid fa-caret-down transition-all duration-300" [ngClass]="{ 'rotate-180': isBrowseOpen }"></i> 
+      </h4>
+      
+      <!-- Accordion Content -->
+      <div class="browse-content m-3" *ngIf="isBrowseOpen">
+        <div class="group flex items-center cursor-pointer my-2" routerLink="/platforms">
+            <i class="fa-solid fa-gamepad w-8"></i>
+          <p class="group-hover:translate-x-2 transition-all duration-500 text-sm">Platforms</p>
+        </div>
+      
+        <div class="group flex items-center cursor-pointer my-2" routerLink="/creators">
+            <i class="fa-solid fa-user w-8"></i>
+            <p class="group-hover:translate-x-2 transition-all duration-500 text-sm">Creators</p>
+        </div>
+      
+        <div class="group flex items-center cursor-pointer my-2" routerLink="/collections">
+            <i class="fa-solid fa-folder-closed w-8"></i>
+            <p class="group-hover:translate-x-2 transition-all duration-500 text-sm">Collections</p>
+        </div>
+      
+        <div class="group flex items-center cursor-pointer my-2">
+            <i class="fa-solid fa-comment w-8"></i>
+            <p class="group-hover:translate-x-2 transition-all duration-500 text-sm">Reviews</p>
+        </div>
+      </div>
+    
+    </div>
