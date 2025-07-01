@@ -1,15 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HomeService {
-
+  baseUrl:string = environment.apiBaseUrl;
   constructor(private httpClient:HttpClient) { }
 
-  getAllGames():Observable<any>{
-    return this.httpClient.get(`https://api.rawg.io/api/games`, {params: {name:'aa'}})
+  getGamesList():Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/games`, {params: {name:'aa'}})
   }
 }

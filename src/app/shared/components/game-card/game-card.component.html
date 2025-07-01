@@ -1,14 +1,14 @@
-<!-- <a (click)="getBgImg(game.background_image)" class="game-item card-shadow pointer">
-    <div class="child-item">
+<a (click)="getBgImg(game.background_image)" class="game-item flex relative cursor-pointer">
+    <div class="child-item transition-all duration-300 ease-in-out rounded-xl">
             <div class="game-img ">
-                <img [src]="game.background_image" class="w-100" alt="">
+                <img [src]="game.background_image" class="w-full" alt="">
             </div>
             <div class="game-info">
                 <div class="game-name">
                     <h2>{{game.name}}</h2>
                 </div>
-                <div class="game-rate-info flex-between">
-                    <div class="game-added flex-between icon-round my-4 px-1">
+                <div class="game-rate-info flex justify-between items-center">
+                    <div class="game-added flex justify-between items-center icon-round my-4 px-1">
                         <i class="fa-solid fa-plus"></i>
                         <p>{{game.added}}</p>
                     </div>
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="more-info">
-                    <div class="more-info-item flex-between py-1">
+                    <div class="more-info-item flex justify-between items-center py-1">
                         <div class="info-title">
                             <p>Release date:</p>
                         </div>
@@ -27,17 +27,19 @@
                         </div>
                     </div>
 
-                    <div class="more-info-item flex-between py-1">
+                    <div class="more-info-item flex justify-between items-center py-1">
                         <div class="info-title">
                             <p>Genres:</p>
                         </div>
                         <div class="game-date">
-                            <span *ngFor="let genre of game.genres">{{genre.name}}, </span>
+                            @for (genre of game.genres; track genre.id) {
+                            <span>{{genre.name}}, </span>
+                            }
                         </div>
                     </div>
 
-                    <div class="more-info-button flex-between py-3 icon-round bg-light px-2 my-5">
-                        <button class="flex-between w-100 pointer">
+                    <div class="more-info-button flex justify-between items-center py-3 icon-round bg-light px-2 my-5">
+                        <button class="flex justify-between items-center w-full pointer">
                             <p class="color-text">Show more like this</p>
                             <div class="fa-solid fa-angle-right color-text"></div>
                         </button>
@@ -47,4 +49,4 @@
         
         
     </div>
-</a> -->
+</a>

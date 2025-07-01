@@ -1,1 +1,5 @@
-<p>home works!</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    @for ( game of gamesList; track game.id ) {
+        <app-game-card [game]="game"></app-game-card>
+      }
+</div>

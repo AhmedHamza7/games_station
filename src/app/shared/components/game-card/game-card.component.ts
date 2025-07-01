@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './game-card.component.scss'
 })
 export class GameCardComponent {
-
+  @Input() game:any;
   constructor() { }
 
   getBgImg(img:any){

@@ -2,16 +2,17 @@ import { Component } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedService } from '../../../../shared/services/shared.service';
+import { GameCardComponent } from '../../../../shared/components/game-card/game-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, GameCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  allGames:any[] = []
+  gamesList:any[] = []
   constructor(
     private homeService:HomeService,
     private sharedService: SharedService
@@ -23,10 +24,10 @@ export class HomeComponent {
   }
 
   getGamesList() {
-    this.homeService.getAllGames().subscribe({
+    this.homeService.getGamesList().subscribe({
       next:(res:any)=> {
-        this.allGames = res.results
-        console.log(this.allGames);
+        this.gamesList = res.results
+        console.log(this.gamesList);
       },
       // error:(err:any)=> {
       //   this.sharedService.showError(err)
