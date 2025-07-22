@@ -1,5 +1,6 @@
 .game-item{
     background-color: var(--medium-color);
+    position: relative;
     &:hover{
         z-index: 6;
         .child-item{
@@ -17,8 +18,6 @@
         background-color: var(--medium-color);
         .game-img{
             img{
-                max-height: 180px;
-                min-height: 180px;
                 border-top-right-radius: 10px;
                 border-top-left-radius: 10px;
             }
@@ -26,7 +25,7 @@
         .game-info{
             padding: 15px;
             .game-name{
-                max-height: 35px;
+                height: 45px;
                 overflow: hidden;
             }
             .game-rate-info{

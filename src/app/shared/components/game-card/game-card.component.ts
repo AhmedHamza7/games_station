@@ -1,15 +1,17 @@
-import { Component, Input } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component, Input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-game-card',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, NgClass],
   templateUrl: './game-card.component.html',
   styleUrl: './game-card.component.scss'
 })
 export class GameCardComponent {
   @Input() game:any;
+  @Input() gridDisplay!: 'grid' | 'list'
   constructor() { }
 
   getBgImg(img:any){

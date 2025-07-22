@@ -1,5 +1,55 @@
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    @for ( game of gamesList; track game.id ) {
-        <app-game-card [game]="game"></app-game-card>
+<div class="home-content"
+#scrollContainer
+infiniteScroll 
+[infiniteScrollDistance]="4"
+[scrollWindow]="true"
+(scrolled)="onScroll()">
+    <app-page-description 
+    [title]="'New and Trending'" 
+    [description]="'Based on player counts and release date'">
+    </app-page-description>
+    <div class="filters-content flex items-center justify-between mb-6 w-full">
+      <div class="sort-content flex items-center justify-end ">
+        <div class="sort-item cursor-pointer flex justify-center items-center w-[40px] h-[40px] text-2xl text-white hover:text-gray-300 transition-all duration-300 ease-in-out hover:scale-110 border border-gray-300 rounded-md p-2" 
+        (click)="changeSort('newest')">
+          <i class="fa-solid fa-arrow-down-up-across-line"></i>
+        </div>
+      </div>
+      <div class="search-content flex items-center justify-start">
+        <!-- <mat-form-field>
+          <input matInput type="text" placeholder="Search">
+        </mat-form-field> -->
+      </div>
+
+
+      <div class="grid-display flex justify-end items-center gap-x-4">
+        <div class="grid-display-item cursor-pointer flex justify-center items-center w-[40px] h-[40px] text-2xl text-white hover:text-gray-300 transition-all duration-300 ease-in-out hover:scale-110 border border-gray-300 rounded-md p-2" 
+        (click)="changeGridDisplay('list')">
+          <i class="fa-regular fa-square"></i>
+        </div>
+        <div class="grid-display-item cursor-pointer flex justify-center items-center w-[40px] h-[40px] text-2xl text-white hover:text-gray-300 transition-all duration-300 ease-in-out hover:scale-110 border border-gray-300 rounded-md p-2" 
+        (click)="changeGridDisplay('grid')">
+          <i class="fa-solid fa-table-cells-large"></i>
+        </div>
+      </div>
+
+    </div>
+    <div class="grid grid-cols-1 gap-6 justify-items-center"
+    [ngClass]="gridDisplay() === 'grid' ? 'sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4' : ''">
+      @for ( game of gamesList(); track game.id ) {
+        <app-game-card [ngClass]="gridDisplay() === 'list' ? 'w-2/3' : 'w-full'" [game]="game" [gridDisplay]="gridDisplay()"></app-game-card>
       }
+    </div>
+    @if (continueScrolling() === false && !loading()) {
+      <div class="flex justify-center items-center mt-12 mb-24">
+        <button (click)="onContinueScrolling()" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          More Games 
+         </button>
+      </div>
+    }
+    @if (loading()) {
+      <div class="h-64 flex justify-center items-center">
+        <app-loader></app-loader>
+      </div>
+    }
 </div>

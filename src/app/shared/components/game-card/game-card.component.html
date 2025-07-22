@@ -1,11 +1,13 @@
 <a (click)="getBgImg(game.background_image)" class="game-item flex relative cursor-pointer">
-    <div class="child-item transition-all duration-300 ease-in-out rounded-xl">
+    <div class="child-item transition-all duration-300 ease-in-out rounded-xl" [ngClass]="gridDisplay === 'list' ? 'w-full' : ''">
             <div class="game-img ">
-                <img [src]="game.background_image" class="w-full" alt="">
+                <img [src]="game.background_image" class="w-full md:max-w-full" 
+                [ngClass]="gridDisplay === 'grid' ? 'max-h-[180px] min-h-[180px]' : 'max-h-[300px] min-h-[300px]'"
+                alt="">
             </div>
             <div class="game-info">
                 <div class="game-name">
-                    <h2>{{game.name}}</h2>
+                    <h2 class="line-clamp-2">{{game.name}}</h2>
                 </div>
                 <div class="game-rate-info flex justify-between items-center">
                     <div class="game-added flex justify-between items-center icon-round my-4 px-1">

@@ -10,7 +10,7 @@ export class HomeService {
   baseUrl:string = environment.apiBaseUrl;
   constructor(private httpClient:HttpClient) { }
 
-  getGamesList():Observable<any>{
-    return this.httpClient.get(`${this.baseUrl}/games`, {params: {name:'aa'}})
+  getGamesList(filterCriteria:any):Observable<any>{
+    return this.httpClient.get(`${this.baseUrl}/games`, {params: filterCriteria})
   }
 }
